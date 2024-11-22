@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.jpeg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Bookmark</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center pt-3 pb-5 bb">
+        <h1>Bookmarker</h1>
+      </div>
+      <div class="secTtl text-center mt-3">
+        <h2 class="fs-4 m-2 secTitle">
+          <i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites
+          <i class="fa-solid fa-bookmark"></i>
+        </h2>
+      </div>
+      <div class="form pt-3 bb">
+        <label for="bookmarkName" class="fw-bold"
+          ><i class="fa-solid fa-book-bookmark"></i> Site Name</label
+        >
+        <input
+          type="text"
+          name="webName"
+          id="bookmarkName"
+          placeholder="Bookmark Name"
+          class="form-control mt-2"
+          oninput="validateInputs(/^[\w\s]{3,20}$/, this.value, this)"
+        />
+        <p id="exist" class="text-danger"></p>
+        <label for="bookmarkUrl" class="fw-bold mt-4"
+          ><i class="fa-solid fa-link"></i> Site URL</label
+        >
+        <input
+          type="text"
+          name="webUrl"
+          id="bookmarkUrl"
+          placeholder="Website URL"
+          class="form-control mt-2"
+          oninput="validateInputs(/^https:\/\//, this.value, this)"
+        />
+        <button
+          class="mx-auto d-block border-0 my-4 px-5 py-2 rounded-2 text-white"
+          onclick="submitBookmark()"
+        >
+          Submit
+        </button>
+      </div>
+      <table class="table text-center mt-5">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Website Name</th>
+            <th>Visit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="display"></tbody>
+      </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
